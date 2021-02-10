@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+Admin Page
+
+<table align='center' border='1' cellspacing='0'>
+    <tr>
+        <td>Id</td>
+        <td>Username</td>
+        <td>Role</td>
+        <td>Action</td>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.userId}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.userRole}"></td>
+        <td>
+            <button>DELETE</button>
+        </td>
+    </tr>
+</table>
+
+<br/> <a href="index.html" th:href="@{/}">return Home</a> <br/>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+</head>
+<body>
+
+<div id="particles-js">
+    <div class="login-container">
+        <p>Register</p>
+        <p th:if="${error}" class="error">Register Error</p>
+        <form th:action="@{/register-save}" method="post">
+            <label for="username">Username</label>:
+            <input type="text" id="username" name="username" autofocus="autofocus"/> <br/>
+            <label for="password">Password</label>:
+            <input type="password" id="password" name="password"/> <br/>
+            <label for="userRole">Role</label>:
+            <select name="userRole" id="userRole">
+                <option value="ADMIN">Admin</option>
+                <option value="USER">User</option>
+            </select>
+            <br/>
+            <input type="submit" value="register"/><br/>
+            <a href="index.html" th:href="@{/}">back to login</a> <br/>
+        </form>
+    </div>
+</div>
+
+<script th:src="@{/js/particles.js}"></script>
+<script th:src="@{/js/app.js}"></script>
+
+</body>
+</html>

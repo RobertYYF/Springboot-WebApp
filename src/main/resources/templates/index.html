@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<h1>Home</h1>
+<h2 th:text="${'Welcome back ' + host}">Hello</h2>
+<div sec:authorize="isAuthenticated()">
+    <a href="chat.html" th:href="@{/chat}">Chat</a>
+    Click here to start chatting!
+</div>
+<br/>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+    Visible to admin <br/>
+    <a href="admin.html" th:href="@{/admin}">Manage</a>
+</div>
+<br/>
+<div sec:authorize="hasRole('ROLE_USER')">
+    Visible to user
+</div>
+<br/>
+<br/>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="logout"/>
+</form>
+</body>
+</html>
